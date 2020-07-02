@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 // import store from '../store/index'
 // import { add, minus, empty } from "../store/actionCreators";
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
+import { connect } from '../store/myReactRedux'
+import { bindActionCreators } from '../store/myRedux'
 
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // https://www.redux.org.cn/docs/react-redux/api.html#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
@@ -16,12 +16,13 @@ import { bindActionCreators } from 'redux'
 
   // Function
   dispatch => {
+    
     let creators = {
-      add: () => dispatch({ type: "ADD" }),
-      minus: value => dispatch({ type: "MINUS", payload: value }),
-      empty: () => dispatch({ type: "EMPTY" })
+      add: () => ({ type: "ADD" }),
+      minus: value => ({ type: "MINUS", payload: value }),
+      empty: () => ({ type: "EMPTY" })
     }
-    creators = bindActionCreators(creators, dispatch)
+    creators = bindActionCreators(creators, dispatch);
     return { dispatch, ...creators }
   }
 )
@@ -74,17 +75,17 @@ class ReduxPage extends Component {
 }
 export default ReduxPage
 
-@connect(state => state)
-class Child extends Component {
-  render() {
-    console.log(this.props);
-    return <div>
-      <h4>Child</h4>
-      <div>{this.props.countReducer.count}</div>
-      <div>{this.props.prop}</div>
-    </div>
-  }
-}
+// @connect(state => state)
+// class Child extends Component {
+//   render() {
+//     console.log(this.props);
+//     return <div>
+//       <h4>Child</h4>
+//       <div>{this.props.countReducer.count}</div>
+//       <div>{this.props.prop}</div>
+//     </div>
+//   }
+// }
 
 
 // export default function ReduxPage() {

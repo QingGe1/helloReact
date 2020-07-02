@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from '../store/myReactRedux'
 
 export default function ReactReduxHookPage() {
   const state = useSelector(state => state);
