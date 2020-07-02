@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers  } from "redux";
 import logger from "redux-logger";
 import thunk from "redux-thunk";
-// import { createStore, applyMiddleware, combineReducers } from "./mystore";
+// import { createStore, applyMiddleware, combineReducers } from "./myRedux";
 // import logger from "./middleware/logger";
 // import thunk from "./middleware/thunk";
 

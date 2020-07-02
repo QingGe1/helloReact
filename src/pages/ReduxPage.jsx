@@ -13,7 +13,7 @@ import { bindActionCreators } from 'redux'
 
   // Object
   // { add, minus, empty }
-  
+
   // Function
   dispatch => {
     let creators = {
@@ -37,6 +37,7 @@ class ReduxPage extends Component {
     //   this.unsubscribe();
     // }
   }
+
   add = () => {
     this.props.add();
   };
@@ -56,21 +57,36 @@ class ReduxPage extends Component {
   render() {
     const { props } = this
     return (
-      <div>
+      <div className='contanier'>
         <h3>ReduxPage</h3>
         <h4>countReducer</h4>
-        <p>{props.countReducer.count}</p>
+        <div>{props.countReducer.count}</div>
         <button onClick={this.add}>add</button>
         <button onClick={this.minus}>minus</button>
         <button onClick={this.empty}>empty</button>
         <button onClick={this.asyAdd}>asyAdd</button>
         <h4>firstNamedReducer</h4>
-        <p>{props.firstNamedReducer.count}</p>
+        <div>{props.firstNamedReducer.count}</div>
+        {/* <Child prop={'prop'}></Child> */}
       </div>
     )
   }
 }
 export default ReduxPage
+
+@connect(state => state)
+class Child extends Component {
+  render() {
+    console.log(this.props);
+    return <div>
+      <h4>Child</h4>
+      <div>{this.props.countReducer.count}</div>
+      <div>{this.props.prop}</div>
+    </div>
+  }
+}
+
+
 // export default function ReduxPage() {
 //   const [count, setCount] = useState(store.getState());
 //   store.subscribe(() => {

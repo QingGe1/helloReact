@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function ReduxPage() {
+export default function ReactReduxHookPage() {
   const state = useSelector(state => state);
   const dispatch = useDispatch();
 
@@ -13,9 +13,9 @@ export default function ReduxPage() {
   }, [dispatch]);
 
   return (
-    <div>
-      <h3>ReduxPage</h3>
-      <p>{state.countReducer.count}</p>
+    <div className='contanier'>
+      <h3>ReactReduxHookPage</h3>
+      <div>{state.countReducer.count}</div>
       <button onClick={add}>add</button>
       <button onClick={minus}>minus</button>
     </div>

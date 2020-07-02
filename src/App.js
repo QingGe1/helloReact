@@ -5,7 +5,7 @@ import React from 'react';
 // import RCFormPage from './pages/RCFormPage';
 // import HOCFormPage from './pages/HOCFormPage';
 // import DialogPage from './pages/DialogPage';
-// import ReduxPage from './pages/ReduxPage';
+import ReduxPage from './pages/ReduxPage';
 import ReactReduxHookPage from './pages/ReactReduxHookPage';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       {/* <RCFormPage></RCFormPage> */}
       {/* <HOCFormPage name='123'></HOCFormPage> */}
       {/* <DialogPage></DialogPage> */}
-      {/* <ReduxPage></ReduxPage> */}
+      <ReduxPage></ReduxPage>
       <ReactReduxHookPage></ReactReduxHookPage>
     </div>
   );
