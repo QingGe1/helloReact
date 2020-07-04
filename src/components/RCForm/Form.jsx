@@ -2,8 +2,9 @@ import React from 'react'
 import FieldContext from './FieldContext'
 import useForm from './useForm'
 
-export default function Form({ children, form, onFinish, onFinishFailed }) {
+export default function Form({ children, form, onFinish, onFinishFailed }, ref) {
   const [formInstance] = useForm(form);
+
   formInstance.setCallback({ onFinish, onFinishFailed })
   const submit = (e) => {
     e.preventDefault();

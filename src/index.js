@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import store from './store'
 import { Provider } from './store/myReactRedux'
 
-import App from './App';
+import RouterMap from './router/RouterMap';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -14,7 +14,7 @@ ReactDOM.render(
   //   <App />
   // </React.StrictMode>,
   <Provider store={store}>
-     <App />
+     <RouterMap />
   </Provider>,
   document.getElementById('root')
 );

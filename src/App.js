@@ -2,11 +2,11 @@ import React from 'react';
 // import logo from './logo.svg';
 // import './App.css';
 // import AntdForm from './pages/AntdForm';
-// import RCFormPage from './pages/RCFormPage';
+import RCFormPage from './pages/RCFormPage';
 // import HOCFormPage from './pages/HOCFormPage';
 // import DialogPage from './pages/DialogPage';
-import ReduxPage from './pages/ReduxPage';
-import ReactReduxHookPage from './pages/ReactReduxHookPage';
+// import ReduxPage from './pages/ReduxPage';
+// import ReactReduxHookPage from './pages/ReactReduxHookPage';
 
 function App() {
   return (
@@ -26,11 +26,11 @@ function App() {
         </a>
       </header> */}
       {/* <AntdForm></AntdForm> */}
-      {/* <RCFormPage></RCFormPage> */}
+      <RCFormPage></RCFormPage>
       {/* <HOCFormPage name='123'></HOCFormPage> */}
       {/* <DialogPage></DialogPage> */}
-      <ReduxPage></ReduxPage>
-      <ReactReduxHookPage></ReactReduxHookPage>
+      {/* <ReduxPage></ReduxPage> */}
+      {/* <ReactReduxHookPage></ReactReduxHookPage> */}
     </div>
   );
 }

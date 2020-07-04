@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 // import Form, {Field} from "rc-field-form";
 import Form, { Field } from "../components/RCForm/";
 import Input from "../components/Input";
@@ -8,6 +8,7 @@ const passworRules = { required: true, message: "请输入密码！" };
 
 export default function RCFormPage(props) {
   const [form] = Form.useForm();
+  const formRef = useRef(null);
 
   const onFinish = val => {
     console.log("onFinish", val); //sy-log
@@ -20,13 +21,14 @@ export default function RCFormPage(props) {
 
   useEffect(() => {
     console.log("form", form); //sy-log
+    console.log('formRef', formRef);
     //form.setFieldsValue({username: "default"});
   }, [form]);
 
   return (
     <div>
       <h3>MyRCFieldForm</h3>
-      <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed}>
+      <Form form={form} onFinish={onFinish} onFinishFailed={onFinishFailed} >
         <Field name="username" rules={[nameRules]}>
           <Input placeholder="input UR Username" />
         </Field>
