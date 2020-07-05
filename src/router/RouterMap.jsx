@@ -1,5 +1,6 @@
 import React from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom'
+// import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import { BrowserRouter, Route } from './myRouter'
 import Loading from './Loading'
 
 const RouterList = [
@@ -22,10 +23,10 @@ const RouterList = [
 // }
 const RouteMap = () => (
   <BrowserRouter
-    // getUserConfirmation={getConfirmation('Are you sure?')}
+  // getUserConfirmation={getConfirmation('Are you sure?')}
   >
     <React.Suspense fallback={Loading()}>
-      <Switch>
+      {/* <Switch>
         {RouterList.map(item => (
           <Route
             key={item.path}
@@ -35,7 +36,16 @@ const RouteMap = () => (
           />
         ))}
         <Route render={() => <div>404 page</div>} />
-      </Switch>
+      </Switch> */}
+      {RouterList.map(item => (
+        <Route
+          key={item.path}
+          exact={true}
+          path={item.path}
+          component={item.component}
+        />
+      ))}
+      <Route render={() => <div>404 page</div>} />
     </React.Suspense>
   </BrowserRouter>
 )

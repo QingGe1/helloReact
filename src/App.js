@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Link, NavLink, Prompt  } from 'react-router-dom'
+// import logo from './logo.svg';
+// import { Link, NavLink, Prompt  } from 'react-router-dom'
 import './App.css';
 // import AntdForm from './pages/AntdForm';
 // import RCFormPage from './pages/RCFormPage';
@@ -8,14 +8,12 @@ import './App.css';
 // import DialogPage from './pages/DialogPage';
 // import ReduxPage from './pages/ReduxPage';
 // import ReactReduxHookPage from './pages/ReactReduxHookPage';
+import RouterPage from './pages/RouterPage';
 
 function App(props) {
-  const refCallback = node => {
-    console.log(node);
-  }
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -28,10 +26,8 @@ function App(props) {
         >
           Learn React
         </a>
-        <Prompt message="您确定要离开该页面吗?" />
-        <NavLink to="/" innerRef={refCallback} >index</NavLink>
-        <Link to='/AntdForm'>AntdForm</Link>
-      </header>
+      </header> */}
+      <RouterPage></RouterPage>
       {/* <AntdForm></AntdForm> */}
       {/* <RCFormPage></RCFormPage> */}
       {/* <HOCFormPage name='123'></HOCFormPage> */}
