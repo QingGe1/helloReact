@@ -4,12 +4,26 @@ import Loading from './Loading'
 
 const RouterList = [
   {
-    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../App.js')),
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../App')),
     path: '/'
   },
+  {
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
+    path: '/AntdForm'
+  },
+  {
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
+    path: '/AntdForm'
+  },
 ]
+// const getConfirmation = (message, callback) => {
+//   const allowTransition = window.confirm(message)
+//   callback && callback(allowTransition)
+// }
 const RouteMap = () => (
-  <BrowserRouter>
+  <BrowserRouter
+    // getUserConfirmation={getConfirmation('Are you sure?')}
+  >
     <React.Suspense fallback={Loading()}>
       <Switch>
         {RouterList.map(item => (
@@ -20,6 +34,7 @@ const RouteMap = () => (
             component={item.component}
           />
         ))}
+        <Route render={() => <div>404 page</div>} />
       </Switch>
     </React.Suspense>
   </BrowserRouter>
