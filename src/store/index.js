@@ -1,10 +1,11 @@
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import logger from "redux-logger";
-import thunk from "redux-thunk";
+// import thunk from "redux-thunk";
 import createSagaMiddleware from 'redux-saga'
 // import { createStore, applyMiddleware, combineReducers } from "./myRedux";
 // import logger from "./middleware/logger";
 // import thunk from "./middleware/thunk";
+import { loginSaga } from './action/loginSaga'
 
 import { countReducer } from './reducer/countReducer'
 import { loginReducer } from './reducer/loginReducer'
@@ -15,6 +16,6 @@ const combined = combineReducers({ countReducer, user: loginReducer })
 
 const store = createStore(combined, applyMiddleware(sagaMiddleware, logger))
 
-// sagaMiddleware.run()
+sagaMiddleware.run(loginSaga)
 
 export default store

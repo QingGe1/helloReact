@@ -18,7 +18,7 @@ export default connect(
     <>
       <input type="text" value={name} onChange={(event) => { setName(event.target.value) }} />
       <button onClick={() => { login({ name }) }}>{loading ? 'loading' : '登录'}</button>
-      <p>{err.message}</p>
+      <p>{err.msg}</p>
     </>
   )
 })

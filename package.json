@@ -44,6 +44,7 @@
     "less": "^3.11.3",
     "less-loader": "^6.1.2",
     "node-sass": "^4.14.1",
-    "react-app-rewired": "^2.1.6"
+    "react-app-rewired": "^2.1.6",
+    "redux-saga": "^1.1.3"
   }
 }
