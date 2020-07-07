@@ -11,7 +11,6 @@ function* loginHandle(action) {
   yield put({ type: REQUEST });
   try {
     const res = yield call(LoginService.login, action.payload);
-    console.log(res);
     yield put({ type: LOGIN_SUCCESS, payload: res })
   } catch (error) {
     yield put({ type: LOGIN_FAILURE, payload: error })
