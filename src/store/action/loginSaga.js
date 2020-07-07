@@ -10,8 +10,9 @@ export default function* loginSaga() {
 function* loginHandle(action) {
   yield put({ type: REQUEST });
   try {
-    const res = yield call(LoginService.login, action.payload);
-    yield put({ type: LOGIN_SUCCESS, payload: res })
+    const loginRes = yield call(LoginService.login, action.payload);
+    const infoRes = yield call(LoginService.getMoreUserInfo, loginRes)
+    yield put({ type: LOGIN_SUCCESS, payload: { ...loginRes, ...infoRes } })
   } catch (error) {
     yield put({ type: LOGIN_FAILURE, payload: error })
   }
