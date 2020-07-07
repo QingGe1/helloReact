@@ -3,7 +3,7 @@ import { REQUEST, LOGIN_SAGA, LOGIN_SUCCESS, LOGIN_FAILURE } from './loginType'
 import LoginService from '../../service/login'
 
 
-export function* loginSaga() {
+export default function* loginSaga() {
   yield takeEvery(LOGIN_SAGA, loginHandle)
 }
 
