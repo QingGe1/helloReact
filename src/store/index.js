@@ -14,7 +14,7 @@ const sagaMiddleware = createSagaMiddleware();
 
 const combined = combineReducers({ countReducer, user: loginReducer })
 
-const store = createStore(combined, applyMiddleware(sagaMiddleware, logger))
+const store = createStore(combined, applyMiddleware(sagaMiddleware))
 
 sagaMiddleware.run(rootSaga)
 

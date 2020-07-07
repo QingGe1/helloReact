@@ -1,10 +1,10 @@
-import { takeEvery, take, call, put } from 'redux-saga/effects'
+import { takeEvery, take, call, put, fork } from 'redux-saga/effects'
 import { REQUEST, LOGIN_SAGA, LOGIN_SUCCESS, LOGIN_FAILURE } from './loginType'
 import LoginService from '../../service/login'
 
 
 export default function* loginSaga() {
-  yield takeEvery(LOGIN_SAGA, loginHandle)
+  yield myTakeEvery(LOGIN_SAGA, loginHandle)
 }
 
 function* loginHandle(action) {
@@ -17,3 +17,11 @@ function* loginHandle(action) {
     yield put({ type: LOGIN_FAILURE, payload: error })
   }
 }
+
+const myTakeEvery = (pattern, saga, ...args) => fork(function* () {
+  while (true) {
+    const action = yield take(pattern);
+    console.log(action);
+    yield fork(saga, ...args.concat(action))
+  }
+})
