@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from "prop-types";
 import { RouterContext } from './Context'
 
+import Lifecycle from './Lifecycle'
+
 export default function Prompt({ message, when = true }) {
   return (
     <RouterContext.Consumer>
@@ -28,21 +30,6 @@ export default function Prompt({ message, when = true }) {
       }}
     </RouterContext.Consumer>
   )
-}
-
-class Lifecycle extends React.Component {
-  componentDidMount() {
-    if (this.props.onMount) this.props.onMount.call(this, this);
-  }
-  componentDidUpdate(prevProps) {
-    if (this.props.onUpdate) this.props.onUpdate.call(this, this, prevProps);
-  }
-  componentWillUnmount() {
-    if (this.props.onUnmount) this.props.onUnmount.call(this, this);
-  }
-  render() {
-    return null;
-  }
 }
 
 Prompt.propTypes = {

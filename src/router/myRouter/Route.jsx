@@ -5,7 +5,6 @@ import matchPath from './matchPath';
 export default class Route extends Component {
 
   render() {
-
     return <RouterContext.Consumer>
       {context => {
         const { location } = context;
