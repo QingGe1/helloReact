@@ -4,11 +4,18 @@ import matchPath from './matchPath';
 
 export default class Route extends Component {
 
-  render() {
+  render() { 
     return <RouterContext.Consumer>
       {context => {
         const { location } = context;
-        const { path, exact, children, component, render, computedMatch } = this.props;
+        const {
+          path,
+          // exact,
+          children,
+          component,
+          render,
+          computedMatch
+        } = this.props;
         const match = computedMatch
           ? computedMatch
           : path

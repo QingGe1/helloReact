@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 // import store from '../store/index'
 // import { add, minus, empty } from "../store/actionCreators";
-import { connect } from '../store/myReactRedux'
-import { bindActionCreators } from '../store/myRedux'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 // connect([mapStateToProps], [mapDispatchToProps], [mergeProps], [options])
 // https://www.redux.org.cn/docs/react-redux/api.html#connectmapstatetoprops-mapdispatchtoprops-mergeprops-options
@@ -66,8 +66,11 @@ class ReduxPage extends Component {
         <button onClick={this.minus}>minus</button>
         <button onClick={this.empty}>empty</button>
         <button onClick={this.asyAdd}>asyAdd</button>
-        <h4>firstNamedReducer</h4>
-        <div>{props.firstNamedReducer.count}</div>
+        <h4>loginReducer</h4>
+        <div>isLogin:{props.user.isLogin}</div>
+        <div>id:{props.user.userInfo.id}</div>
+        <div>name:{props.user.userInfo.name}</div>
+        <div>score:{props.user.userInfo.score}</div>
         {/* <Child prop={'prop'}></Child> */}
       </div>
     )

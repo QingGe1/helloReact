@@ -12,9 +12,18 @@ const RouterList = [
     component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
     path: '/AntdForm'
   },
+]
+
+const roleRoute = [
   {
     component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
     path: '/AntdForm'
+  },
+]
+const unroleRoute = [
+  {
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../App')),
+    path: '/'
   },
 ]
 // const getConfirmation = (message, callback) => {

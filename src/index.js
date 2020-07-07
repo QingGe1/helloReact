@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import store from './store'
-import { Provider } from './store/myReactRedux'
+import { Provider } from 'react-redux'
 
 // import RouterMap from './router/RouterMap';
 import App from './App';

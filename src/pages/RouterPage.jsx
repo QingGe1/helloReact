@@ -5,15 +5,18 @@ import {
   Link,
   Route,
   Switch,
-  Prompt,
+  // Prompt,
   useRouteMatch,
   useHistory,
   useLocation,
   useParams,
-  withRouter
+  // withRouter
 } from "../router/myRouter";
+
+import PrivateRoutes from '../router/PrivateRoutes'
 import AntdForm from "./AntdForm";
 import ReduxPage from "./ReduxPage";
+import LoginPage from "./LoginPage";
 export default class RouterPage extends Component {
   render() {
     return (
@@ -27,10 +30,10 @@ export default class RouterPage extends Component {
             <Link to="/test/1">test</Link>
             <Link to="/404">404</Link>
           </nav>
-          <Prompt
+          {/* <Prompt
             when={true}
             message="Are you sure you want to leave?"
-          />
+          /> */}
           <Switch>
             <Route
               path="/test/:id"
@@ -39,8 +42,9 @@ export default class RouterPage extends Component {
               render={render}
             />
             <Route exact path="/" component={AntdForm} />
-            <Route path="/user" component={ReduxPage} />
-            <Route render={() => <TComponent />} />
+            <PrivateRoutes path="/user" component={ReduxPage} redirect='/login' />
+            <Route path="/login" component={LoginPage} />
+            <Route render={() => <Page404 />} />
           </Switch>
         </BrowserRouter>
       </div>
@@ -60,13 +64,13 @@ function _Component(props) {
   console.log('hook', history, match, location, params);
   return <div>component</div>
 }
-@withRouter
-class TComponent extends Component {
-  render() {
-    console.log(this.props);
-    return <div>component</div>
-  }
-}
+// @withRouter
+// class TComponent extends Component {
+//   render() {
+//     console.log(this.props);
+//     return <div>component</div>
+//   }
+// }
 function render() {
   return <div>render</div>
 }
