@@ -5,7 +5,7 @@ import Loading from './Loading'
 
 const RouterList = [
   {
-    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../App')),
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/App/App')),
     path: '/'
   },
   {
@@ -46,7 +46,7 @@ const roleRoute = [
 ]
 const unroleRoute = [
   {
-    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../App')),
+    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/App/App')),
     path: '/'
   },
 ]

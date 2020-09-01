@@ -8,9 +8,23 @@ import './App.css';
 // import DialogPage from './pages/DialogPage';
 // import ReduxPage from './pages/ReduxPage';
 // import ReactReduxHookPage from './pages/ReactReduxHookPage';
-import RouterPage from './pages/RouterPage';
+import RouterPage from '../RouterPage';
+
+const MyContainer = (WrappedComponent) =>
+  class extends React.Component {
+    render() {
+      return <WrappedComponent {...this.props} />
+    }
+  }
+const TC = function () {
+  return <div>111</div>
+}
+const Btn = MyContainer(TC)
+
+
 
 function App(props) {
+
   return (
     <div className="App">
       {/* <header className="App-header">
@@ -28,6 +42,7 @@ function App(props) {
         </a>
       </header> */}
       <RouterPage></RouterPage>
+      <Btn></Btn>
       {/* <AntdForm></AntdForm> */}
       {/* <RCFormPage></RCFormPage> */}
       {/* <HOCFormPage name='123'></HOCFormPage> */}
@@ -37,5 +52,30 @@ function App(props) {
     </div>
   );
 }
-
 export default App;
+
+
+
+function WithLogin(WrappedComponent, callback) {
+  // @connect(
+  //   ({ auth }) => ({ auth }),
+  //   dispatch => {
+  //     console.log('dispatch', dispatch);
+  //   }
+  // )
+  class LoginButton extends React.Component {
+    constructor(props) {
+      super(props)
+    }
+
+    clickHandle = () => {
+      console.log(this.props.auth);
+    }
+
+    render() {
+      return <WrappedComponent {...this.props} onClikc={this.clickHandle} />;
+    }
+
+  }
+  return LoginButton
+}
