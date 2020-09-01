@@ -10,19 +10,6 @@ import './App.css';
 // import ReactReduxHookPage from './pages/ReactReduxHookPage';
 import RouterPage from '../RouterPage';
 
-const MyContainer = (WrappedComponent) =>
-  class extends React.Component {
-    render() {
-      return <WrappedComponent {...this.props} />
-    }
-  }
-const TC = function () {
-  return <div>111</div>
-}
-const Btn = MyContainer(TC)
-
-
-
 function App(props) {
 
   return (
@@ -42,7 +29,6 @@ function App(props) {
         </a>
       </header> */}
       <RouterPage></RouterPage>
-      <Btn></Btn>
       {/* <AntdForm></AntdForm> */}
       {/* <RCFormPage></RCFormPage> */}
       {/* <HOCFormPage name='123'></HOCFormPage> */}

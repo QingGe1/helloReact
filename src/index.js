@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import store from './store'
 import { Provider } from 'react-redux'
 
-// import RouterMap from './router/RouterMap';
-import App from './App';
+import RouterMap from './router/RouterMap';
+// import App from './App';
 
 import * as serviceWorker from './serviceWorker';
 
@@ -15,7 +15,7 @@ ReactDOM.render(
   //   <App />
   // </React.StrictMode>,
   <Provider store={store}>
-    <App />
+    <RouterMap></RouterMap>
   </Provider>,
   document.getElementById('root')
 );

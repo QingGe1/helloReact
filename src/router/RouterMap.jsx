@@ -38,18 +38,18 @@ const RouterList = [
   },
 ]
 
-const roleRoute = [
-  {
-    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
-    path: '/AntdForm'
-  },
-]
-const unroleRoute = [
-  {
-    component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/App/App')),
-    path: '/'
-  },
-]
+// const roleRoute = [
+//   {
+//     component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/AntdForm')),
+//     path: '/AntdForm'
+//   },
+// ]
+// const unroleRoute = [
+//   {
+//     component: React.lazy(() => import(/* webpackChunkName: "App"*/ '../pages/App/App')),
+//     path: '/'
+//   },
+// ]
 // const getConfirmation = (message, callback) => {
 //   const allowTransition = window.confirm(message)
 //   callback && callback(allowTransition)
