@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export function createForm(Cmp) {
+export default function createForm(Cmp) {
   return class extends Component {
     constructor(props) {
       super(props)
@@ -32,6 +32,7 @@ export function createForm(Cmp) {
           err.push({ [name]: rules.message, value });
         }
       });
+      cb(err);
       return err;
     }
     getForm = () => ({

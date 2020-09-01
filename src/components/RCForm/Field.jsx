@@ -1,41 +1,40 @@
 import React, { Component } from 'react'
 import FieldContext from './FieldContext';
 
-
 export default class Field extends Component {
   static contextType = FieldContext;
+
   componentDidMount() {
-    this.cancelRegister = this.context.registerField(this);
+    this.cancelRegisterField = this.context.registerField(this);
   }
 
   componentWillUnmount() {
-    if (this.cancelRegister) {
-      this.cancelRegister();
+    if (this.cancelRegisterField) {
+      this.cancelRegisterField();
     }
   }
 
   onStoreChange = () => {
     this.forceUpdate();
   };
-  getControled = () => {
-    const {
-      getFieldValue,
-      setFieldValue,
-      // setFieldsValue,
-    } = this.context;
+
+  getControlled = () => {
+    const { getFieldValue, setFieldValue } = this.context;
     const { name } = this.props;
     return {
       value: getFieldValue(name),
       onChange: e => {
         const newValue = e.target.value;
         setFieldValue(name, newValue);
-        // setFieldsValue({[name]:newValue});
       }
     };
   };
   render() {
     const { children } = this.props;
-    const returnChildNode = React.cloneElement(children, this.getControled());
+    const returnChildNode = React.cloneElement(
+      children,
+      this.getControlled()
+    );
     return returnChildNode;
   }
 }

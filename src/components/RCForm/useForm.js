@@ -6,18 +6,20 @@ class FormStore {
     this.fieldEntities = [];
     this.callbacks = {}
   }
-  setCallback = (callbacks) => {
-    this.callbacks = {
-      ...this.callbacks,
-      ...callbacks,
-    }
-  }
+  
   registerField = field => {
     this.fieldEntities.push(field);
     // 删除 field
     return () => {
       this.fieldEntities = this.fieldEntities.filter(item => item !== field);
       delete this.store[field.props.name];
+    }
+  }
+
+  setCallback = (callbacks) => {
+    this.callbacks = {
+      ...this.callbacks,
+      ...callbacks,
     }
   }
 
@@ -71,34 +73,25 @@ class FormStore {
       registerField: this.registerField,
       setCallback: this.setCallback,
       getFieldValue: this.getFieldValue,
+      setFieldValue: this.setFieldValue,
       getFieldsValue: this.getFieldsValue,
       setFieldsValue: this.setFieldsValue,
       submit: this.submit,
     }
   }
-
 }
 
 export default function useForm(form) {
-
   const formRef = useRef()
   if (!formRef.current) {
     if (form) {
       formRef.current = form;
     } else {
       const formStore = new FormStore();
-      formRef.current = formStore;
+      formRef.current = formStore.getForm();
     }
   }
   return [formRef.current]
-
-  // let formRef;
-  // if (form) {
-  //   formRef = form;
-  // } else {
-  //   const formStore = new FormStore();
-  //   formRef = formStore;
-  // }
-
-  // return [formRef]
 }
+
+
