@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { RouterContext } from "./Context"
+import { RouterContext } from "./RouterContext"
 
 export const useHistory = () => useContext(RouterContext).history
 export const useRouteMatch = () => useContext(RouterContext).match

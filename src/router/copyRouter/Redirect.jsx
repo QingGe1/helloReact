@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from "prop-types";
-import { RouterContext } from './Context'
+import { RouterContext } from './RouterContext'
 import Lifecycle from './Lifecycle'
 
 export default class Redirect extends Component {

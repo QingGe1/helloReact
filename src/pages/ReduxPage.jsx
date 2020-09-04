@@ -22,8 +22,7 @@ import { bindActionCreators } from 'redux'
       minus: value => ({ type: "MINUS", payload: value }),
       empty: () => ({ type: "EMPTY" })
     }
-    creators = bindActionCreators(creators, dispatch);
-    return { dispatch, ...creators }
+    return { dispatch, ...bindActionCreators(creators, dispatch) }
   }
 )
 class ReduxPage extends Component {

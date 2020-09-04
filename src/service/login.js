@@ -3,7 +3,7 @@ const LoginService = {
   login(userInfo) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (userInfo.name === "小明") {
+        if (userInfo.name === "xiaoming") {
           resolve({ id: 123, name: "omg原来是小明" });
         } else {
           reject({ err: { msg: "用户名或密码错误" } });

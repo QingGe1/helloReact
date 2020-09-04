@@ -1,13 +1,15 @@
 export default function applyMiddleware(...middlewares) {
   return createStore => reducer => {
     const store = createStore(reducer);
+    let dispatch = store.dispatch;
+    // middleware 第一层需要的参数
     const midApi = {
       getState: store.getState,
-      dispatch: store.dispatch,
+      dispatch: (action, ...args) => dispatch(action, ...args),
     }
     const middlewareChain = middlewares.map(middleware => middleware(midApi));
     // next => {} 被执行
-    const dispatch = compose(...middlewareChain)(store.dispatch)
+    dispatch = compose(...middlewareChain)(store.dispatch)
     return {
       ...store,
       dispatch

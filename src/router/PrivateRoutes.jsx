@@ -1,9 +1,8 @@
 import React from 'react';
-import { Route, Redirect } from './myRouter';
+// import { Route, Redirect } from './copyRouter';
+import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
-export default connect(
-  ({ user }) => ({ isLogin: user.isLogin })
-)(function PrivateRoutes({ isLogin, component: Component, path, redirect, ...restProps }) {
+function PrivateRoutes({ isLogin, component: Component, path, redirect, ...restProps }) {
   return (
     <Route
       {...restProps}
@@ -13,4 +12,5 @@ export default connect(
       }
     />
   )
-})
+}
+export default connect(({ user }) => ({ isLogin: user.isLogin }))(PrivateRoutes)

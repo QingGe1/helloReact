@@ -10,7 +10,10 @@ class CopyAntd3Form extends Component {
     this.props.form.setFieldsValue({ username: "default" });
   }
   submit = () => {
-    const { getFieldsValue, validateFields } = this.props.form;
+    const {
+      // getFieldsValue,
+      validateFields
+    } = this.props.form;
     // console.log("submit", getFieldsValue());
     validateFields((err, val) => {
       if (err) {

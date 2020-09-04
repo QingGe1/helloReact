@@ -1,4 +1,4 @@
-import React from 'react';
+import React from './node_modules/react';
 import Context from './context'
 
 export default function Provider({ children, store }) {

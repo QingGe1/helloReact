@@ -6,7 +6,6 @@ const userInit = {
   err: { msg: '' }
 };
 
-// 定义修改规则
 export const loginReducer = (state = { ...userInit }, { type, payload }) => {
   switch (type) {
     case REQUEST:

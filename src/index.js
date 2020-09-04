@@ -15,7 +15,7 @@ ReactDOM.render(
   //   <App />
   // </React.StrictMode>,
   <Provider store={store}>
-    <RouterMap></RouterMap>
+    <RouterMap />
   </Provider>,
   document.getElementById('root')
 );

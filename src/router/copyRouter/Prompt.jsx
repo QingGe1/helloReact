@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from "prop-types";
-import { RouterContext } from './Context'
+import { RouterContext } from './RouterContext'
 
 import Lifecycle from './Lifecycle'
 
+// 阻止路由切换
 export default function Prompt({ message, when = true }) {
   return (
     <RouterContext.Consumer>

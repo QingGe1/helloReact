@@ -1,4 +1,3 @@
-// 暗号 苏丹
 export default function combineReducers(reducers) {
   return function combination(state = {}, action) {
     const reducerKeys = Object.keys(reducers)

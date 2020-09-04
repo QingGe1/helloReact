@@ -1,4 +1,4 @@
-import { useContext, useReducer, useLayoutEffect } from 'react'
+import { useContext, useReducer, useLayoutEffect } from './node_modules/react'
 import Context from './context'
 
 export function useSelector(selector) {
@@ -16,6 +16,7 @@ export function useSelector(selector) {
   }, [subscribe])
   return selectedState;
 }
+
 export function useDispatch() {
   const store = useStore();
   return store.dispatch;

@@ -1,8 +1,8 @@
-import React from 'react';
-import { Redirect } from '../router/myRouter';
+import React, { useState } from 'react';
 import { connect } from 'react-redux'
+// import { Redirect } from '../router/copyRouter';
+import { Redirect } from 'react-router-dom'
 import { login } from '../store/action/user';
-import { useState } from 'react';
 
 export default connect(
   ({ user: { isLogin, loading, err } }) => ({ isLogin, loading, err }),
@@ -12,6 +12,7 @@ export default connect(
   const { isLogin, location, login, loading, err } = props
   if (isLogin) {
     const { form = '/' } = location.state || {};
+    console.log(form)
     return <Redirect to={form} />
   }
   return (
